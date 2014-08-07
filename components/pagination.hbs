@@ -1,0 +1,48 @@
+<!-- Pagination: a widget where you navigate through pages, e.g. search results -->
+<ol class="b-pagination">
+	
+	{{#if is-first-page}}
+		<li class="prev is-inactive">
+			<span>
+				{{prev-title}}
+			</span>
+		</li>
+	{{else}}
+		<li class="prev">
+			<a href="{{prev-href}}">
+				{{prev-title}}
+			</a>
+		</li>
+	{{/if}}
+	
+	{{#each pages}}
+		{{#if is-active}}
+			<li class="page is-active">
+				<strong>
+					{{link-title}}
+				</strong>
+			</li>
+		{{else}}
+			<li class="page">
+				<a href="{{link-href}}">
+					{{link-title}}
+				</a>
+			</li>
+		{{/if}}
+	{{/each}}
+	
+	{{#if is-last-page}}
+		<li class="next is-inactive">
+			<span>
+				{{next-title}}
+			</span>
+		</li>
+	{{else}}
+		<li class="next">
+			<a href="{{next-href}}">
+				{{next-title}}
+			</a>
+		</li>
+	{{/if}}
+	
+</ol>
