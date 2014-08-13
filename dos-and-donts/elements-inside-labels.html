@@ -1,0 +1,85 @@
+<!-- Example 1 -->
+
+<!-- DON'T put a link inside a label for the sake of usability and accessibility -->
+<input id="ref-privacy-policy" type="checkbox" required="required" />
+
+<label for="ref-privacy-policy">You have my agreement to send my personal data to company XY. For more information to the privacy policy of company XY <a href="link-to-privacy-policy.html">click here</a>.</label>
+
+
+
+<!-- DO place the link outside the label and use aria-describedby to provide a descriptive information -->
+<input id="ref-privacy-policy" aria-describedby="ref-detail" type="checkbox" required="required" />
+
+<label for="ref-privacy-policy">You have my agreement to send my personal data to company XY.</label>
+
+<div id="ref-detail">
+	<p>For more information to the privacy policy of company XY <a href="link-to-privacy-policy.html">click here</a>.</p>
+</div>
+
+
+
+
+
+<!-- Example 2 -->
+
+<!-- DON'T put a button inside a label (e.g. to open a tooltip) for the sake of usability and accessibility -->
+<label for="ref-name">
+	Name
+	
+	<button type="button">
+		<i class="help">(?) show more information</i>
+		<span class="tooltip">Your name must match the name on your ID card.</span>
+	</button>
+</label>
+
+<input id="ref-name" type="text" />
+
+
+
+<!-- DO place the button next to the label -->
+<label for="ref-name">Name</label>
+
+<button type="button">
+	<i class="help">(?) show more information</i>
+	<span class="tooltip">Your name must match the name on your ID card.</span>
+</button>
+
+<input id="ref-name" type="text" />
+
+
+
+
+
+<!-- Example 3 -->
+
+<!-- DON'T put lists inside labels, it's not W3C valid-->
+<input id="ref-agreement" type="checkbox" required="required" />
+	
+<label for="ref-agreement">
+	For the purpose of checking my credit-worthiness at the credit bureaus listed below I agree that company XY obtains following infos: my name, my address, my date and place of birth.
+		
+	<ul>
+		<li>Credit Bureau A: Sesamestreet 1, 10111 Berlin</li>
+		
+		<li>Credit Bureau B: Milky Way 23, 20144 Hamburg</li>
+		
+		<li>Credit Bureau C: Diagon Alley 7a, 60311 Frankfurt</li>
+	</ul>
+</label>
+
+
+
+<!-- DO place the link outside the label and use aria-describedby to provide a descriptive information -->
+<input id="ref-agreement" aria-describedby="ref-info" type="checkbox" required="required" />
+
+<label for="ref-agreement">For the purpose of checking my credit-worthiness at the credit bureaus listed below I agree that company XY obtains following infos: my name, my address, my date and place of birth.</label>
+
+<div id="ref-info">
+	<ul>
+		<li>Credit Bureau A: Sesamestreet 1, 10111 Berlin</li>
+		
+		<li>Credit Bureau B: Milky Way 23, 20144 Hamburg</li>
+		
+		<li>Credit Bureau C: Diagon Alley 7a, 60311 Frankfurt</li>
+	</ul>
+</div>
