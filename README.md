@@ -44,21 +44,9 @@ attributes: `pattern, placeholder, required` …
 - __Tables:__ Make use of `<thead>, <tfoot>, <tbody>, <th>`.
 - __Human readable:__ Code is written and maintained by people. Ensure your code is descriptive, well commented, and approachable by others!
 
-
-### Components
-
-It isn't necessary to always reinvent the wheel. Therefore I put some HTML basic structure in this [components-folder](https://github.com/nikita-kit/nikita-html/tree/master/components). Just copy and paste the components into your project.
-
-
 ### DOs and DON'Ts
 
 Under [DOs and DON'Ts](https://github.com/nikita-kit/nikita-html/tree/master/dos-and-donts) I collect cases I came across in my daily business.
-
-
-### Forms
-
-The [form-folder](https://github.com/nikita-kit/nikita-html/tree/master/forms) includes a flexible responsive form-framework.
-
 
 ## Questions?
 
