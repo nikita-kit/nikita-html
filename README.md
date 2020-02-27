@@ -4,8 +4,8 @@ We will show you HTML patterns, code snippets and best practices that are worth 
 
 Latest Release: [![GitHub version](https://badge.fury.io/gh/nikita-kit%2Fnikita-html.png)](https://github.com/nikita-kit/nikita-html/releases)
 
-If you want to start a new project from scratch, try [generator-nikita](https://github.com/nikita-kit/generator-nikita).  
-If you want to write efficient and scalable (S)CSS-code for big websites, try [nikita.css](https://github.com/nikita-kit/nikita-css).
+If you want to start a new project from scratch, scaffold your stack with [generator-nikita](https://github.com/nikita-kit/generator-nikita).  
+If you want to write efficient and scalable (S)CSS-code for websites, try [nikita.css](https://github.com/nikita-kit/nikita-css).
 
 
 ## Contents
