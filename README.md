@@ -48,6 +48,61 @@ attributes: `pattern, placeholder, required` …
 
 Under [DOs and DON'Ts](https://github.com/nikita-kit/nikita-html/tree/master/dos-and-donts) I collect cases I came across in my daily business.
 
+## Twig
+
+For all our web projects we use Twig as our template engine or at least twig inspired engines like [Pebble](https://pebbletemplates.io/) for Java based projects.
+See the [twig documentation](http://twig.sensiolabs.org/documentation) and the [twig intro for designers](http://twig.sensiolabs.org/doc/templates.html) if you wonder how twig is working in general.
+You can add custom twig functions, filters and tags in the grunt config file at `grunt/config/twigRender.js`.
+See the [grunt-twig-render documentation](https://github.com/stefanullinger/grunt-twig-render) for examples.
+Also, you find a list of supported twig features in the [twig.js wiki](https://github.com/twigjs/twig.js/wiki).
+
+### the pages-folder
+
+Every `.twig` file will result in a `.html` file after build.
+
+### the layouts-folder
+
+You can decorate a page using twigs `extends` tag in a page template like this:
+
+```
+{% extends '@layouts/master.twig' %}
+```
+
+
+### the partials-folder
+
+You can use a partial in a page using twigs `include`, `embed` and `use` tags:
+
+```
+{% include '@partials/gitinfos.twig' %}
+```
+If you want to bind data to the partial you can extend it like follows:
+
+```
+{% include '@partials/gitinfos.twig' with {
+    tag: 12.3
+    message: 'Hello world,
+} only %}
+```
+
+Please always add the `only` keyword to the data binding to avoid accidentally binding all data from the parent scope to the partial. This saves you from unintended conflicts with you're partial data.
+
+### the macros-folder
+
+You can import them in a page or a partial using twigs `import` tag:
+
+```
+{% import '@macros/mymacro.twig' %}
+```
+
+### the data-folder
+
+Include them in any template with the custom twig `data` function to set a variable with its content: 
+
+```
+{% set mydata = data('@data/data.json') %}
+```
+
 ## License
 
 nikita.html is licensed under [CC0](http://creativecommons.org/publicdomain/zero/1.0/): Public Domain Dedication.
