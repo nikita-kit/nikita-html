@@ -68,7 +68,6 @@ You can decorate a page using twigs `extends` tag in a page template like this:
 {% extends '@layouts/master.twig' %}
 ```
 
-
 ### the partials-folder
 
 You can use a partial in a page using twigs `include`, `embed` and `use` tags:
@@ -81,7 +80,7 @@ If you want to bind data to the partial you can extend it like follows:
 ```
 {% include '@partials/gitinfos.twig' with {
     tag: 12.3
-    message: 'Hello world,
+    message: 'Hello world',
 } only %}
 ```
 
