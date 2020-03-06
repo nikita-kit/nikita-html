@@ -58,7 +58,7 @@ Also, you find a list of supported twig features in the [twig.js wiki](https://g
 
 ### Directory namespaces
 
-To ease the access to our template directories you can use the following namespaces: `@layouts`, `@partials`, `@macros` and `@data`.
+To ease the access to our template directories you can use the following namespaces: `@components`, `@layouts`, `@partials`, `@macros` and `@data`.
 
 ### the pages-folder
 
