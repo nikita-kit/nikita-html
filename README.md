@@ -56,6 +56,10 @@ You can add custom twig functions, filters and tags in the grunt config file at 
 See the [grunt-twig-render documentation](https://github.com/stefanullinger/grunt-twig-render) for examples.
 Also, you find a list of supported twig features in the [twig.js wiki](https://github.com/twigjs/twig.js/wiki).
 
+### Directory namespaces
+
+To ease the access to our template directories you can use the following namespaces: `@layouts`, `@partials`, `@macros` and `@data`.
+
 ### the pages-folder
 
 Every `.twig` file will result in a `.html` file after build.
@@ -88,10 +92,16 @@ Please always add the `only` keyword to the data binding to avoid accidentally b
 
 ### the macros-folder
 
-You can import them in a page or a partial using twigs `import` tag:
+To use a macro it's necessary that you first import them in the page or a partial using twigs `import` tag:
 
 ```
-{% import '@macros/mymacro.twig' %}
+{% import '@macros/forms.twig' as forms %}
+```
+
+With that we are then able to make use of the macro in our template:
+
+```
+{{ forms.input('username') }}
 ```
 
 ### the data-folder
