@@ -4,15 +4,15 @@ We will show you HTML patterns, code snippets and best practices that are worth 
 
 Latest Release: [![GitHub version](https://badge.fury.io/gh/nikita-kit%2Fnikita-html.png)](https://github.com/nikita-kit/nikita-html/releases)
 
-If you want to start a new project from scratch, try [nikita.kickstarter](https://github.com/nikita-kit/nikita-kickstarter).  
-If you want to write efficient and scalable (S)CSS-code for big websites, try [nikita.css](https://github.com/nikita-kit/nikita-css).
+If you want to start a new project from scratch, scaffold your stack with [generator-nikita](https://github.com/nikita-kit/generator-nikita).  
+If you want to write efficient and scalable (S)CSS-code for websites, try [nikita.css](https://github.com/nikita-kit/nikita-css).
 
 
 ## Contents
 
 ### HTML Rules
 
-__HTML5__ is preferred for all HTML documents, so I'm using:
+__HTML5__ is preferred for all HTML documents, so we are using:
 
 __HTML5 Elements__
 
@@ -38,32 +38,79 @@ attributes: `pattern, placeholder, required` …
 - __Semantics:__ Use HTML according to its purpose. For example, use heading elements `h1–h6` for headings, `p` elements for paragraphs, `a` elements for anchors etc. Tables shouldn't be used for page layout. Also try to avoid DIVitis.
 - __Separation of Concerns:__ Separate structure from presentation from behavior.
 - __Type Attributes:__ Omit type attributes for style sheets and scripts.
-- __General Formatting:__ Use a new line for every block, list, or table element and indent every such child element. I'm using tabs instead of spaces.
+- __General Formatting:__ Use a new line for every block, list, or table element and indent every such child element. Use 4 spaces for indentation.
 - __Quoting:__ When quoting attributes values, use double quotation marks `" "`.
 - __Label/Input:__ Every form input should utilize a `label` with a `for`-attribute..
 - __Tables:__ Make use of `<thead>, <tfoot>, <tbody>, <th>`.
 - __Human readable:__ Code is written and maintained by people. Ensure your code is descriptive, well commented, and approachable by others!
 
-
-### Components
-
-It isn't necessary to always reinvent the wheel. Therefore I put some HTML basic structure in this [components-folder](https://github.com/nikita-kit/nikita-html/tree/master/components). Just copy and paste the components into your project.
-
-
 ### DOs and DON'Ts
 
 Under [DOs and DON'Ts](https://github.com/nikita-kit/nikita-html/tree/master/dos-and-donts) I collect cases I came across in my daily business.
 
+## Twig
 
-### Forms
+For all our web projects we use Twig as our template engine or at least twig inspired engines like [Pebble](https://pebbletemplates.io/) for Java based projects.
+See the [twig documentation](http://twig.sensiolabs.org/documentation) and the [twig intro for designers](http://twig.sensiolabs.org/doc/templates.html) if you wonder how twig is working in general.
+You can add custom twig functions, filters and tags in the grunt config file at `grunt/config/twigRender.js`.
+See the [grunt-twig-render documentation](https://github.com/stefanullinger/grunt-twig-render) for examples.
+Also, you find a list of supported twig features in the [twig.js wiki](https://github.com/twigjs/twig.js/wiki).
 
-The [form-folder](https://github.com/nikita-kit/nikita-html/tree/master/forms) includes a flexible responsive form-framework.
+### Directory namespaces
 
+To ease the access to our template directories you can use the following namespaces: `@components`, `@layouts`, `@partials`, `@macros` and `@data`.
 
-## Questions?
+### the pages-folder
 
-If you're asking yourself _»Why not …?«_ have a look at my [WHY-NOT.md](https://github.com/nikita-kit/nikita-html/blob/master/WHY-NOT.md) file. There I might answer some common questions. :)
+Every `.twig` file will result in a `.html` file after build.
 
+### the layouts-folder
+
+You can decorate a page using twigs `extends` tag in a page template like this:
+
+```
+{% extends '@layouts/master.twig' %}
+```
+
+### the partials-folder
+
+You can use a partial in a page using twigs `include`, `embed` and `use` tags:
+
+```
+{% include '@partials/gitinfos.twig' %}
+```
+If you want to bind data to the partial you can extend it like follows:
+
+```
+{% include '@partials/gitinfos.twig' with {
+    tag: 12.3
+    message: 'Hello world',
+} only %}
+```
+
+Please always add the `only` keyword to the data binding to avoid accidentally binding all data from the parent scope to the partial. This saves you from unintended conflicts with you're partial data.
+
+### the macros-folder
+
+To use a macro it's necessary that you first import them in the page or a partial using twigs `import` tag:
+
+```
+{% import '@macros/forms.twig' as forms %}
+```
+
+With that we are then able to make use of the macro in our template:
+
+```
+{{ forms.input('username') }}
+```
+
+### the data-folder
+
+Include them in any template with the custom twig `data` function to set a variable with its content: 
+
+```
+{% set mydata = data('@data/data.json') %}
+```
 
 ## License
 
